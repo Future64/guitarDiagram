@@ -32,7 +32,7 @@ const App = () => {
         guitarDisplayType={guitarDisplayType}
         nbStrings={nbStrings}
         nbFrets={nbFrets}
-        tuning={tuning}
+        tuning={tuning.reverse()}
         enhamronics={enhamronics}
         viewType={viewType}
         clickableCase={clickableCase}

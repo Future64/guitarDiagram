@@ -3,6 +3,7 @@ import Fret from '../Fret/Fret'
 import Nut from '../Nut/Nut'
 import String from '../String/String'
 import './Fretboard.scss'
+import CircleInfo from '../CircleInfo/CircleInfo'
 
 type FretboardProps = {
   nbStrings: number
@@ -30,18 +31,30 @@ const Fretboard = ({
     }
     return frets
   }
+
   return (
     <div className='fretboard'>
-      <Nut
-        nbStrings={nbStrings}
-        nbFrets={nbFrets}
-        tuning={tuning}
-        enhamronics={enhamronics}
-        viewType={viewType}
-        fretbordView={fretbordView}
-        focusZone={focusZone}
-      />
+      <div className='headInfo'>
+        {tuning.map((string, index) => {
+          return (
+            <CircleInfo
+              key={'stringHead-' + string + index}
+              string={string}
+              viewType={viewType}
+            />
+          )
+        })}
+      </div>
       <div className='fretBox'>
+        <Nut
+          nbStrings={nbStrings}
+          nbFrets={nbFrets}
+          tuning={tuning}
+          enhamronics={enhamronics}
+          viewType={viewType}
+          fretbordView={fretbordView}
+          focusZone={focusZone}
+        />
         {displayFret(nbFrets).map((fret, i) => {
           return <Fret />
         })}

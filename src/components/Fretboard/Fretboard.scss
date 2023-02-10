@@ -7,10 +7,11 @@
   align-content: center;
   width: 95%;
   height: 100%;
+  margin-left: 5%;
   background-color: #fff;
   border: 1px solid #000;
   border-radius: 5px;
-  overflow: hidden;
+  // overflow: hidden;
   .fretBox {
     position: absolute;
     display: flex;
@@ -18,6 +19,20 @@
     justify-content: space-between;
     width: 100%;
     height: 100%;
+    // padding-left: 20px;
+    // margin-left: 20%;
     background-color: bisque;
+  }
+  .headInfo {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    // align-items: center;
+    // align-content: center;
+    width: 100%;
+    height: 100%;
+    left: -55px;
+    z-index: 3;
   }
 }

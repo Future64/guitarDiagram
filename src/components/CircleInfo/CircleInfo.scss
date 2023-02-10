@@ -1,13 +1,16 @@
 .circleInfo {
   //   position: absolute;
   display: flex;
+  // flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
   width: 25px;
   height: 25px;
+  margin-left: 1.6%;
   border-radius: 100%;
   border: 1px solid #000;
   text-align: center;
-  background-color: rgba(0, 255, 255, 0.409);
+  background-color: rgba(0, 255, 255, 0.831);
   color: black;
+  z-index: 3;
 }
