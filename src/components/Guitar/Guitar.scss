@@ -1,6 +1,7 @@
 .guitar-main {
-  background-color: aqua;
-  .truc {
-    background-color: red;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 200px;
+  width: 95%;
 }

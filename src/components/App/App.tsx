@@ -1,7 +1,7 @@
 import './App.scss'
 import Guitar from '../Guitar/Guitar'
 
-function App() {
+const App = () => {
   /* Commons options */
   let guitarDisplayType: string = 'fretboard' //'fretboard', 'diagramChords'
   let nbStrings: number = 6

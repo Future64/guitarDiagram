@@ -1,0 +1,23 @@
+.fretboard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  width: 95%;
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  overflow: hidden;
+  .fretBox {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    background-color: bisque;
+  }
+}

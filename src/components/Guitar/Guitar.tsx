@@ -1,4 +1,6 @@
 import React from 'react'
+import Fretboard from '../Fretboard/Fretboard'
+import Inlay from '../Inlay/Inlay'
 import './Guitar.scss'
 
 type GuitarProps = {
@@ -22,11 +24,31 @@ type GuitarProps = {
   omitCase: string[] | string
 }
 
-const Guitar = ({ nbStrings, nbFrets, tuning, enhamronics, viewType }: GuitarProps) => {
+const Guitar = ({
+  nbStrings,
+  nbFrets,
+  tuning,
+  enhamronics,
+  viewType,
+  fretbordView,
+  focusZone,
+}: GuitarProps) => {
   return (
     <div className='guitar-main'>
-      Hello
-      <div className='truc'>Caca</div>
+      <Fretboard
+        nbStrings={nbStrings}
+        nbFrets={nbFrets}
+        tuning={tuning}
+        enhamronics={enhamronics}
+        viewType={viewType}
+        focusZone={focusZone}
+        fretbordView={fretbordView}
+      />
+      <Inlay
+        nbFrets={nbFrets}
+        focusZone={focusZone}
+        fretbordView={fretbordView}
+      />
     </div>
   )
 }
