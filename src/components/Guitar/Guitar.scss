@@ -11,6 +11,8 @@
 
   &:hover {
     cursor: pointer;
-    border: 3px solid #fc0f0f;
+    border: 3px solid #2ccc00;
+    background-color: #2ccc0060;
+    z-index: 4;
   }
 }

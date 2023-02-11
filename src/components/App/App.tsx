@@ -7,7 +7,7 @@ const App = () => {
   let nbStrings: number = 6
   let nbFrets: number = 24
   let tuning: string[] = ['E', 'A', 'D', 'G', 'B', 'E']
-  let enhamronics: string = '♭' //'♭', '♯'
+  let enhamronics: string = '#' //'b', '#'
   let viewType: string = 'name' //'degree', 'interval', 'name'
   let clickableCase: boolean = true
   let guitarType: string = 'electric' //'electric', 'folk', 'classic', 'banjo', 'ukulele', 'electicBass', 'accousticBass', 'simple'
