@@ -8,7 +8,21 @@ type InlayProps = {
 }
 
 const Inlay = ({ nbFrets, fretbordView, focusZone }: InlayProps) => {
-  return <div className='inlay'></div>
+  const inlayCase: number[] = [3, 5, 7, 9, 12, 15, 17, 19, 21, 24]
+  return (
+    <div className='inlay-box'>
+      {inlayCase.map((inlay, index) => {
+        return (
+          <span
+            className={`inlayCase-${inlay}`}
+            key={'inlayNb-' + index}
+          >
+            {inlay}
+          </span>
+        )
+      })}
+    </div>
+  )
 }
 
 export default Inlay

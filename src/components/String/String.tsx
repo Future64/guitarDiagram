@@ -104,6 +104,7 @@ const String = ({
         return (
           <CircleInfo
             key={'string-' + string + index}
+            circleZone='fretboard'
             string={note}
             viewType={viewType}
           />

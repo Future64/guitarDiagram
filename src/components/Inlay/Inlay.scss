@@ -1,0 +1,54 @@
+.inlay {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 5%;
+  width: 95%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  .inlayCase-3 {
+    position: absolute;
+    left: 10.2%;
+  }
+  .inlayCase-5 {
+    position: absolute;
+    left: 18.5%;
+  }
+  .inlayCase-7 {
+    position: absolute;
+    left: 26.8%;
+  }
+  .inlayCase-9 {
+    position: absolute;
+    left: 35.1%;
+  }
+  .inlayCase-12 {
+    position: absolute;
+    left: 47.2%;
+  }
+  .inlayCase-15 {
+    position: absolute;
+    left: 59.8%;
+  }
+  .inlayCase-17 {
+    position: absolute;
+    left: 68.1%;
+  }
+  .inlayCase-19 {
+    position: absolute;
+    left: 76.4%;
+  }
+  .inlayCase-21 {
+    position: absolute;
+    left: 84.7%;
+  }
+  .inlayCase-24 {
+    position: absolute;
+    left: 96.8%;
+  }
+}

@@ -44,11 +44,13 @@ const Guitar = ({
         focusZone={focusZone}
         fretbordView={fretbordView}
       />
-      <Inlay
-        nbFrets={nbFrets}
-        focusZone={focusZone}
-        fretbordView={fretbordView}
-      />
+      <div className='inlay'>
+        <Inlay
+          nbFrets={nbFrets}
+          focusZone={focusZone}
+          fretbordView={fretbordView}
+        />
+      </div>
     </div>
   )
 }
