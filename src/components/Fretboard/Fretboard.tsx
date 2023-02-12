@@ -4,6 +4,8 @@ import Nut from '../Nut/Nut'
 import String from '../String/String'
 import './Fretboard.scss'
 import CircleInfo from '../CircleInfo/CircleInfo'
+import { buildNewChromaScale, scaleConstructor } from '../../utils/utils'
+import { scales } from '../../data/scales'
 
 type FretboardProps = {
   guitarDisplayType: string
@@ -43,6 +45,24 @@ const Fretboard = ({
     marginLeft: '700px',
   }
 
+  const scaleSorted = scaleConstructor(
+    scale,
+    buildNewChromaScale(rootNote, enhamronics, scales[0].notesSharp, scales[0].notesFlat)
+  )
+  const degreesNote = (note: string) => {
+    return scaleSorted.indexOf(note) + 1
+  }
+
+  const displayScale = (rootNote: string, scaleSorted: string[]) => {
+    let classN = 'hidden'
+    if (scaleSorted.find((elm: string) => elm === rootNote)) {
+      classN = ''
+      return classN
+    }
+    classN = 'hidden'
+    return classN
+  }
+
   return (
     <div
       className='fretboard'
@@ -55,8 +75,12 @@ const Fretboard = ({
               guitarDisplayType={guitarDisplayType}
               key={'stringHead-' + string + index}
               circleZone='headInfo'
+              degreesNote={degreesNote(string)}
+              scale={scale}
+              scaleSorted={scaleSorted}
               string={string}
               viewType={viewType}
+              displayScale={displayScale(string, scaleSorted)}
             />
           )
         })}

@@ -18,8 +18,8 @@ const App = () => {
   let fretbordView: string = 'horizontal' //'vertical', 'horizontal'
   let fretboardType: string = 'right' //'right', 'left'
   let inlay: string = 'dot' //'dot', 'dot+nb', 'nb', 'empty'
-  let rootNote: string = 'F'
-  let scale: number[] | string[] = scales[0].minorPentatonicScale
+  let rootNote: string = 'F#'
+  let scale: number[] | string[] = scales[0].melodicMinorScale
   let sclePosition: string = 'closed' //'closed', 'transversal'
 
   /* Diagram chords options */
