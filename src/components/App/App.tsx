@@ -1,11 +1,12 @@
 import './App.scss'
 import Guitar from '../Guitar/Guitar'
+import { scales } from '../../data/scales'
 
 const App = () => {
   /* Commons options */
   let guitarDisplayType: string = 'fretboard' //'fretboard', 'diagramChords'
   let nbStrings: number = 6
-  let nbFrets: number = 24
+  let nbFrets: number = guitarDisplayType === 'fretboard' ? 24 : 5
   let tuning: string[] = ['E', 'A', 'D', 'G', 'B', 'E']
   let enhamronics: string = '#' //'b', '#'
   let viewType: string = 'name' //'degree', 'interval', 'name'
@@ -17,8 +18,8 @@ const App = () => {
   let fretbordView: string = 'horizontal' //'vertical', 'horizontal'
   let fretboardType: string = 'right' //'right', 'left'
   let inlay: string = 'dot' //'dot', 'dot+nb', 'nb', 'empty'
-  let rootNote: string = 'C'
-  let scale: string = 'major'
+  let rootNote: string = 'F'
+  let scale: number[] | string[] = scales[0].minorPentatonicScale
   let sclePosition: string = 'closed' //'closed', 'transversal'
 
   /* Diagram chords options */

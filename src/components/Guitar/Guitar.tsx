@@ -17,7 +17,7 @@ type GuitarProps = {
   fretboardType: string
   inlay: string
   rootNote: string
-  scale: string
+  scale: number[]
   sclePosition: string
   diagramChordsFooterInfo: string
   focusZone: number[] | string
@@ -25,27 +25,43 @@ type GuitarProps = {
 }
 
 const Guitar = ({
+  guitarDisplayType,
   nbStrings,
   nbFrets,
   tuning,
   enhamronics,
   viewType,
   fretbordView,
+  rootNote,
+  scale,
   focusZone,
 }: GuitarProps) => {
+  const guitarStyle: object = {
+    transform: 'rotate(90deg)',
+    // width: '200px',
+    position: 'absolute',
+  }
+
   return (
-    <div className='guitar-main'>
+    <div
+      className='guitar-main'
+      style={guitarDisplayType === 'diagramChords' ? guitarStyle : {}}
+    >
       <Fretboard
+        guitarDisplayType={guitarDisplayType}
         nbStrings={nbStrings}
         nbFrets={nbFrets}
         tuning={tuning}
         enhamronics={enhamronics}
         viewType={viewType}
         focusZone={focusZone}
+        rootNote={rootNote}
+        scale={scale}
         fretbordView={fretbordView}
       />
       <div className='inlay'>
         <Inlay
+          guitarDisplayType={guitarDisplayType}
           nbFrets={nbFrets}
           focusZone={focusZone}
           fretbordView={fretbordView}

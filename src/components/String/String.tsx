@@ -4,7 +4,9 @@ import './String.scss'
 import { scales } from '../../data/scales'
 
 type StringProps = {
-  key: number
+  guitarDisplayType: string
+  indexString: number
+  key: string
   string: string
   nbStrings: number
   nbFrets: number
@@ -12,10 +14,14 @@ type StringProps = {
   enhamronics: string
   viewType: string
   fretbordView: string
+  rootNote: string
+  scale: number[]
   focusZone: number[] | string
 }
 
 const String = ({
+  guitarDisplayType,
+  indexString,
   key,
   string,
   nbStrings,
@@ -24,6 +30,8 @@ const String = ({
   enhamronics,
   viewType,
   fretbordView,
+  rootNote,
+  scale,
   focusZone,
 }: StringProps) => {
   /**
@@ -64,7 +72,7 @@ const String = ({
    * chromatic scale.
    * @returns An array of the notes in the scale.
    */
-  const scaleConstructor = (scaleForLive: number[], chromaScale: string[]) => {
+  const scaleConstructor = (scaleForLive: number[], chromaScale: string[] | string) => {
     let builtMajorScale = []
     for (let i = 0; i < scaleForLive.length; i++) {
       builtMajorScale.push(chromaScale[scaleForLive[i]])
@@ -97,16 +105,33 @@ const String = ({
   }
 
   const chromaScale: string[] = getNotesToString(nbFrets, chromaScaleExtend)
+  const scaleSorted = scaleConstructor(scale, buildNewChromaScale(rootNote, enhamronics))
+
+  const displayScale = (rootNote: string, scaleSorted: string[]) => {
+    let classN = 'hidden'
+    if (scaleSorted.find((elm: string) => elm === rootNote)) {
+      classN = ''
+      return classN
+    }
+    classN = 'hidden'
+    return classN
+  }
+  console.log(displayScale(rootNote, scaleSorted))
 
   return (
-    <div className='string'>
+    <div
+      className='string'
+      id={`str-${indexString}-${string}`}
+    >
       {chromaScale.map((note, index) => {
         return (
           <CircleInfo
+            guitarDisplayType={guitarDisplayType}
             key={'string-' + string + index}
             circleZone='fretboard'
             string={note}
             viewType={viewType}
+            displayScale={displayScale(note, scaleSorted)}
           />
         )
       })}

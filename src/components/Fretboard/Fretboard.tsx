@@ -6,22 +6,28 @@ import './Fretboard.scss'
 import CircleInfo from '../CircleInfo/CircleInfo'
 
 type FretboardProps = {
+  guitarDisplayType: string
   nbStrings: number
   nbFrets: number
   tuning: string[]
   enhamronics: string
   viewType: string
   fretbordView: string
+  rootNote: string
+  scale: number[]
   focusZone: number[] | string
 }
 
 const Fretboard = ({
+  guitarDisplayType,
   nbStrings,
   nbFrets,
   tuning,
   enhamronics,
   viewType,
   fretbordView,
+  rootNote,
+  scale,
   focusZone,
 }: FretboardProps) => {
   const displayFret = (nbFrets: number) => {
@@ -31,14 +37,24 @@ const Fretboard = ({
     }
     return frets
   }
+  const fretboardStyle: object = {
+    width: '20%',
+    height: '90%',
+    marginLeft: '700px',
+  }
 
   return (
-    <div className='fretboard'>
+    <div
+      className='fretboard'
+      style={guitarDisplayType === 'diagramChords' ? fretboardStyle : {}}
+    >
       <div className='headInfo'>
         {tuning.map((string, index) => {
           return (
             <CircleInfo
+              guitarDisplayType={guitarDisplayType}
               key={'stringHead-' + string + index}
+              circleZone='headInfo'
               string={string}
               viewType={viewType}
             />
@@ -63,7 +79,9 @@ const Fretboard = ({
       {tuning.map((string, index) => {
         return (
           <String
-            key={index}
+            guitarDisplayType={guitarDisplayType}
+            indexString={index + 1}
+            key={'sting' + index}
             string={string}
             nbStrings={nbStrings}
             nbFrets={nbFrets}
@@ -71,6 +89,8 @@ const Fretboard = ({
             enhamronics={enhamronics}
             viewType={viewType}
             fretbordView={fretbordView}
+            rootNote={rootNote}
+            scale={scale}
             focusZone={focusZone}
           />
         )
