@@ -1,6 +1,7 @@
 import './App.scss'
 import Guitar from '../Guitar/Guitar'
 import { scales } from '../../data/scales'
+import Select from '../Select/Select'
 
 const App = () => {
   /* Commons options */
@@ -18,8 +19,8 @@ const App = () => {
   let fretbordView: string = 'horizontal' //'vertical', 'horizontal'
   let fretboardType: string = 'right' //'right', 'left'
   let inlay: string = 'dot' //'dot', 'dot+nb', 'nb', 'empty'
-  let rootNote: string = 'F#'
-  let scale: number[] | string[] = scales[0].melodicMinorScale
+  let rootNote: string = 'C'
+  let scale: number[] | string[] = [0, 2, 4, 5, 7, 9, 11] //scales[0].melodicMinorScale
   let sclePosition: string = 'closed' //'closed', 'transversal'
 
   /* Diagram chords options */
@@ -29,6 +30,7 @@ const App = () => {
 
   return (
     <div className='App'>
+      <Select />
       <Guitar
         guitarDisplayType={guitarDisplayType}
         nbStrings={nbStrings}

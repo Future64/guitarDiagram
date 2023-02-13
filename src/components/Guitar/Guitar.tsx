@@ -2,6 +2,7 @@ import React from 'react'
 import Fretboard from '../Fretboard/Fretboard'
 import Inlay from '../Inlay/Inlay'
 import './Guitar.scss'
+import { intervalCalculator } from '../../utils/intervalCalculator'
 
 type GuitarProps = {
   guitarDisplayType: string
@@ -41,6 +42,8 @@ const Guitar = ({
     // width: '200px',
     position: 'absolute',
   }
+
+  console.log(intervalCalculator(scale))
 
   return (
     <div

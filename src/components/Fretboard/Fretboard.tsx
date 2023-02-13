@@ -6,6 +6,7 @@ import './Fretboard.scss'
 import CircleInfo from '../CircleInfo/CircleInfo'
 import { buildNewChromaScale, scaleConstructor } from '../../utils/utils'
 import { scales } from '../../data/scales'
+import { intervalCalculator } from '../../utils/intervalCalculator'
 
 type FretboardProps = {
   guitarDisplayType: string
@@ -63,6 +64,13 @@ const Fretboard = ({
     return classN
   }
 
+  const getInterval = () => {
+    for (let i = 0; i < scaleSorted.length; i++) {
+      if (scaleSorted[i] === rootNote) {
+        return i
+      }
+    }
+  }
   return (
     <div
       className='fretboard'
@@ -70,6 +78,8 @@ const Fretboard = ({
     >
       <div className='headInfo'>
         {tuning.map((string, index) => {
+          // console.log(scaleSorted.indexOf(intervalCalculator(scale)[index]))
+
           return (
             <CircleInfo
               guitarDisplayType={guitarDisplayType}
@@ -81,6 +91,7 @@ const Fretboard = ({
               string={string}
               viewType={viewType}
               displayScale={displayScale(string, scaleSorted)}
+              index={index}
             />
           )
         })}

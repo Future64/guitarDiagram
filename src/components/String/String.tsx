@@ -3,6 +3,7 @@ import CircleInfo from '../CircleInfo/CircleInfo'
 import './String.scss'
 import { scales } from '../../data/scales'
 import { splitAndBuildScale, buildNewChromaScale, scaleConstructor } from '../../utils/utils'
+import { intervalCalculator } from '../../utils/intervalCalculator'
 
 type StringProps = {
   guitarDisplayType: string
@@ -84,6 +85,8 @@ const String = ({
       id={`str-${indexString}-${string}`}
     >
       {chromaScale.map((note, index) => {
+        console.log(scaleSorted.indexOf(intervalCalculator(scale)[index]))
+
         return (
           <CircleInfo
             guitarDisplayType={guitarDisplayType}
@@ -95,6 +98,7 @@ const String = ({
             scale={scale}
             scaleSorted={scaleSorted}
             displayScale={displayScale(note, scaleSorted)}
+            index={index}
           />
         )
       })}

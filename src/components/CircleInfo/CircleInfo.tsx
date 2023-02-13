@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './CircleInfo.scss'
+import { intervalCalculator } from '../../utils/intervalCalculator'
+import { degreeConversion } from '../../utils/degreeConversion'
 
 type CircleInfoProps = {
   guitarDisplayType: string
@@ -10,6 +12,7 @@ type CircleInfoProps = {
   scale: number[]
   scaleSorted: string[]
   displayScale?: string
+  index?: number
 }
 
 const CircleInfo = ({
@@ -21,35 +24,34 @@ const CircleInfo = ({
   scale,
   scaleSorted,
   displayScale,
+  index,
 }: CircleInfoProps) => {
-  const degreeConversion = (degreesNote: number) => {
-    if (degreesNote === 1) {
-      return 'I°'
-    } else if (degreesNote === 2) {
-      return 'II°'
-    } else if (degreesNote === 3) {
-      return 'III°'
-    } else if (degreesNote === 4) {
-      return 'IV°'
-    } else if (degreesNote === 5) {
-      return 'V°'
-    } else if (degreesNote === 6) {
-      return 'VI°'
-    } else if (degreesNote === 7) {
-      return 'VII°'
-    }
-    return degreesNote
-  }
   const circleInfoStyle: object = { transform: 'rotate(-90deg)' }
   const nameNote: string = string
-  const displayInfo: string | number = viewType === 'degree' ? degreeConversion(degreesNote) : nameNote
+
+  // const displayInterval = () => {
+  //   for (let i = 0; i < scale.length; i++) {
+  //     return intervalCalculator(scale[index])
+  //   }
+  // }
+  console.log(scale[0])
+
+  const displayInfo = () => {
+    if (viewType === 'degree') {
+      return degreeConversion(degreesNote)
+    } else if (viewType === 'name') {
+      return nameNote
+    } else if (viewType === 'interval') {
+      return '?'
+    }
+  }
 
   return (
     <div
       className={`circleInfo ${displayScale}`}
       style={guitarDisplayType === 'diagramChords' ? circleInfoStyle : {}}
     >
-      <span>{displayInfo}</span>
+      <span>{displayInfo()}</span>
     </div>
   )
 }
