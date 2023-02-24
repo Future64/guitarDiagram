@@ -32,11 +32,6 @@ const App = () => {
   let focusZone: number[] | string = [2, 6] // [caseStart, caseEnd], 'noFocus'
   let omitCase: string[] | string = 'none' //[string, note] -> ex:['str3', 'A'], none
 
-  // console.log('alterationValue', alterationValue)
-  // console.log('rootNoteValue', rootNoteValue)
-  // console.log('scalesValue', scalesValue)
-  console.log(nbStringsValue)
-
   return (
     <div className='App'>
       <GroupedSelect />

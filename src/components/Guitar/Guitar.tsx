@@ -43,8 +43,6 @@ const Guitar = ({
     position: 'absolute',
   }
 
-  console.log(intervalCalculator(scale))
-
   return (
     <div
       className='guitar-main'

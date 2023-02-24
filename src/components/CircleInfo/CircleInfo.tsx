@@ -12,7 +12,7 @@ type CircleInfoProps = {
   scale: number[] | string[]
   scaleSorted: string[] | number[]
   displayScale?: string
-  index?: number
+  index: number
 }
 
 const CircleInfo = ({
@@ -29,19 +29,13 @@ const CircleInfo = ({
   const circleInfoStyle: object = { transform: 'rotate(-90deg)' }
   const nameNote: string = string
 
-  // const displayInterval = () => {
-  //   for (let i = 0; i < scale.length; i++) {
-  //     return intervalCalculator(scale[index])
-  //   }
-  // }
-
   const displayInfo = () => {
     if (viewType === 'degree') {
       return degreeConversion(degreesNote)
     } else if (viewType === 'name') {
       return nameNote
     } else if (viewType === 'interval') {
-      return '?'
+      return intervalCalculator(scale)[degreesNote - 1]
     }
   }
 

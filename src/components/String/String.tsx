@@ -82,7 +82,7 @@ const String = ({
       className='string'
       id={`str-${indexString}-${string}`}
     >
-      {chromaScale.map((note, index) => {
+      {chromaScale.map((note, index: number) => {
         // console.log(scaleSorted.indexOf(intervalCalculator(scale)[index]))
 
         return (

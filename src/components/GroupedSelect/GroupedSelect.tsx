@@ -52,10 +52,6 @@ const GroupedSelect = () => {
           id='grouped-native-select'
           label='Altération'
         >
-          <option
-            aria-label='None'
-            value=''
-          />
           <option value={'b'}>b</option>
           <option value={'#'}>#</option>
         </Select>
@@ -68,10 +64,6 @@ const GroupedSelect = () => {
           id='grouped-select'
           label='Root Note'
         >
-          <option
-            aria-label='None'
-            value=''
-          />
           <MenuItem value={'C'}>C</MenuItem>
           <MenuItem value={'C#/Db'}>C#/Db</MenuItem>
           <MenuItem value={'D'}>D</MenuItem>
@@ -94,10 +86,6 @@ const GroupedSelect = () => {
           id='grouped-select'
           label='Gammes/Arpèges'
         >
-          <option
-            aria-label='None'
-            value=''
-          />
           <ListSubheader>Gammes et modes</ListSubheader>
           <MenuItem value={'1'}>Pentatonique mineure</MenuItem>
           <MenuItem value={'2'}>Pentatonique majeure</MenuItem>
@@ -186,29 +174,15 @@ const GroupedSelect = () => {
           label='Affichage'
           onChange={handleDisplayChange}
         >
-          <option
+          {/* <option
             aria-label='None'
             value=''
-          />
+          /> */}
           <MenuItem value={'name'}>Nom de notes</MenuItem>
           <MenuItem value={'degree'}>Degrées</MenuItem>
           <MenuItem value={'interval'}>Intervales</MenuItem>
           {/* <MenuItem value={'4'}>Positions des doigts</MenuItem> */}
         </Select>
-      </FormControl>
-      <FormControl sx={{ m: 1, minWidth: 50 }}>
-        <InputLabel htmlFor='grouped-select'></InputLabel>
-        <TextField
-          id='outlined-number'
-          label='Nombre de cordes'
-          type='number'
-          value={nbStringsValue}
-          defaultValue={6}
-          onChange={handleNbStringsChange}
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
       </FormControl>
     </div>
   )
