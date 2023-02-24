@@ -1,4 +1,4 @@
-export const intervalCalculator = (scale: number[]) => {
+export const intervalCalculator = (scale: number[] | string[]) => {
   let intervals = []
 
   if (scale[0] === 0) {

@@ -1,16 +1,20 @@
 import './App.scss'
 import Guitar from '../Guitar/Guitar'
 import { scales } from '../../data/scales'
-import Select from '../Select/Select'
+import GroupedSelect from '../GroupedSelect/GroupedSelect'
+import { AppProvider, useAppContext } from '../../context/AppProvider'
+import { handleFormScales } from '../../utils/utils'
 
 const App = () => {
+  const { alterationValue, rootNoteValue, scalesValue, displayValue, nbStringsValue } = useAppContext()
+
   /* Commons options */
   let guitarDisplayType: string = 'fretboard' //'fretboard', 'diagramChords'
-  let nbStrings: number = 6
+  let nbStrings: number = 3
   let nbFrets: number = guitarDisplayType === 'fretboard' ? 24 : 5
   let tuning: string[] = ['E', 'A', 'D', 'G', 'B', 'E']
-  let enhamronics: string = '#' //'b', '#'
-  let viewType: string = 'name' //'degree', 'interval', 'name'
+  let enhamronics: string = alterationValue //'b', '#'
+  let viewType: string = displayValue //'degree', 'interval', 'name'
   let clickableCase: boolean = true
   let guitarType: string = 'electric' //'electric', 'folk', 'classic', 'banjo', 'ukulele', 'electicBass', 'accousticBass', 'simple'
   let tone: string = 'electric' //'electric', 'folk', 'classic', 'banjo', 'ukulele', 'electicBass', 'accousticBass', 'simple'
@@ -19,8 +23,8 @@ const App = () => {
   let fretbordView: string = 'horizontal' //'vertical', 'horizontal'
   let fretboardType: string = 'right' //'right', 'left'
   let inlay: string = 'dot' //'dot', 'dot+nb', 'nb', 'empty'
-  let rootNote: string = 'C'
-  let scale: number[] | string[] = [0, 2, 4, 5, 7, 9, 11] //scales[0].melodicMinorScale
+  let rootNote: string = rootNoteValue
+  let scale: number[] | string[] = handleFormScales(scalesValue) //scales[0].melodicMinorScale
   let sclePosition: string = 'closed' //'closed', 'transversal'
 
   /* Diagram chords options */
@@ -28,9 +32,14 @@ const App = () => {
   let focusZone: number[] | string = [2, 6] // [caseStart, caseEnd], 'noFocus'
   let omitCase: string[] | string = 'none' //[string, note] -> ex:['str3', 'A'], none
 
+  // console.log('alterationValue', alterationValue)
+  // console.log('rootNoteValue', rootNoteValue)
+  // console.log('scalesValue', scalesValue)
+  console.log(nbStringsValue)
+
   return (
     <div className='App'>
-      <Select />
+      <GroupedSelect />
       <Guitar
         guitarDisplayType={guitarDisplayType}
         nbStrings={nbStrings}

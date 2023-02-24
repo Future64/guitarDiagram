@@ -18,7 +18,7 @@ type GuitarProps = {
   fretboardType: string
   inlay: string
   rootNote: string
-  scale: number[]
+  scale: number[] | string[]
   sclePosition: string
   diagramChordsFooterInfo: string
   focusZone: number[] | string

@@ -8,7 +8,6 @@ import { intervalCalculator } from '../../utils/intervalCalculator'
 type StringProps = {
   guitarDisplayType: string
   indexString: number
-  key: string
   string: string
   nbStrings: number
   nbFrets: number
@@ -17,14 +16,13 @@ type StringProps = {
   viewType: string
   fretbordView: string
   rootNote: string
-  scale: number[]
+  scale: number[] | string[]
   focusZone: number[] | string
 }
 
 const String = ({
   guitarDisplayType,
   indexString,
-  key,
   string,
   nbStrings,
   nbFrets,
@@ -85,7 +83,7 @@ const String = ({
       id={`str-${indexString}-${string}`}
     >
       {chromaScale.map((note, index) => {
-        console.log(scaleSorted.indexOf(intervalCalculator(scale)[index]))
+        // console.log(scaleSorted.indexOf(intervalCalculator(scale)[index]))
 
         return (
           <CircleInfo

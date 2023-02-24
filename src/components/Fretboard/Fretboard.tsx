@@ -17,7 +17,7 @@ type FretboardProps = {
   viewType: string
   fretbordView: string
   rootNote: string
-  scale: number[]
+  scale: number[] | string[]
   focusZone: number[] | string
 }
 
@@ -46,7 +46,7 @@ const Fretboard = ({
     marginLeft: '700px',
   }
 
-  const scaleSorted = scaleConstructor(
+  const scaleSorted: number[] | string[] = scaleConstructor(
     scale,
     buildNewChromaScale(rootNote, enhamronics, scales[0].notesSharp, scales[0].notesFlat)
   )
@@ -54,7 +54,7 @@ const Fretboard = ({
     return scaleSorted.indexOf(note) + 1
   }
 
-  const displayScale = (rootNote: string, scaleSorted: string[]) => {
+  const displayScale = (rootNote: string, scaleSorted: string[] | number[]) => {
     let classN = 'hidden'
     if (scaleSorted.find((elm: string) => elm === rootNote)) {
       classN = ''
@@ -107,7 +107,7 @@ const Fretboard = ({
           focusZone={focusZone}
         />
         {displayFret(nbFrets).map((fret, i) => {
-          return <Fret />
+          return <Fret key={'fret' + fret + i} />
         })}
       </div>
 

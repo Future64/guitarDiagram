@@ -9,8 +9,8 @@ type CircleInfoProps = {
   string: string
   degreesNote: number
   viewType: string
-  scale: number[]
-  scaleSorted: string[]
+  scale: number[] | string[]
+  scaleSorted: string[] | number[]
   displayScale?: string
   index?: number
 }
@@ -34,7 +34,6 @@ const CircleInfo = ({
   //     return intervalCalculator(scale[index])
   //   }
   // }
-  console.log(scale[0])
 
   const displayInfo = () => {
     if (viewType === 'degree') {

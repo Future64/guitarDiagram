@@ -1,3 +1,5 @@
+import { scales } from '../data/scales'
+
 /**
  * It takes a scale and a root note, and returns a new scale with the root note at the beginning
  * @param {string[]} scale - the scale you want to use
@@ -36,10 +38,60 @@ export const buildNewChromaScale = (rootNote: string, alt: string, scalesSharp: 
  * chromatic scale.
  * @returns An array of the notes in the scale.
  */
-export const scaleConstructor = (scaleForLive: number[], chromaScale: string[] | string) => {
+export const scaleConstructor = (scaleForLive: number[], chromaScale: string[]) => {
   let builtMajorScale = []
-  for (let i = 0; i < scaleForLive.length; i++) {
+  for (let i: number = 0; i < scaleForLive.length; i++) {
     builtMajorScale.push(chromaScale[scaleForLive[i]])
   }
   return builtMajorScale
+}
+
+export const handleFormScales = (value: string) => {
+  let scale: number[] | string[] = ['']
+
+  if (value === '1') {
+    scale = scales[0].minorPentatonicScale
+  } else if (value === '2') {
+    scale = scales[0].majorPentatonicScale
+  } else if (value === '3') {
+    scale = scales[0].minorBluesScale
+  } else if (value === '4') {
+    scale = scales[0].majorBluesScale
+  } else if (value === '5') {
+    scale = scales[0].chromaticScale
+  } else if (value === '6') {
+    scale = scales[0].wholeToneScale
+  } else if (value === '7') {
+    scale = scales[0].diminishedScale
+  } else if (value === '8') {
+    scale = scales[0].augmentedScale
+  } else if (value === '9') {
+    scale = scales[0].naturalMajorScale
+  } else if (value === '10') {
+    scale = scales[0].naturalMinorScale
+  } else if (value === '11') {
+    scale = scales[0].ionianScale
+  } else if (value === '12') {
+    scale = scales[0].dorianScale
+  } else if (value === '13') {
+    scale = scales[0].phrygianScale
+  } else if (value === '14') {
+    scale = scales[0].lydianScale
+  } else if (value === '15') {
+    scale = scales[0].mixolydianScale
+  } else if (value === '16') {
+    scale = scales[0].aeolianScale
+  } else if (value === '17') {
+    scale = scales[0].locrianScale
+  } else if (value === '18') {
+    scale = scales[0].harmonicMinorScale
+  }
+  // else if(value = 19) {
+  //   return scales[0].locrianSharp6Scale
+  // } else if(value = 20) {
+  //   return scales[0].locrianSharp5Scale
+  // } else if(value = 21) {
+  //   return scales[0].dorianFlat4Scale
+  // }
+  return scale
 }
